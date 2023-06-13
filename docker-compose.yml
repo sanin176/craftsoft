@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  craftsoft-db:
+    image: postgres:latest
+    container_name: craftsoft_db
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+    environment:
+      - POSTGRES_USER=craftsoft
+      - POSTGRES_PASSWORD=craftsoft
+    ports:
+      - 5432:5432
+    command: [ "postgres", "-c", "wal_level=logical" ]
