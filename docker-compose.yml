@@ -9,6 +9,7 @@ services:
     environment:
       - POSTGRES_USER=craftsoft
       - POSTGRES_PASSWORD=craftsoft
+      - POSTGRES_DB=craftsoft_db
     ports:
       - 5432:5432
     command: [ "postgres", "-c", "wal_level=logical" ]

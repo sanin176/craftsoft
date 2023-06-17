@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+database:
+  host: localhost
+  port: 5432
+  username: craftsoft_test
+  password: craftsoft_test
+  database: craftsoft_test
+  schema: craftsoft_test
+  pool:
+    maxIdleTimeInMinutes: 5
+    maxSize: 30
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${database.host}:${database.port}/${database.database}
+    username: ${database.username}
+    password: ${database.password}
+  jpa:
+    hibernate:
+      jdbc:
+        time_zone: UTC
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${database.host}:${database.port}/${database.database}
+    password: ${database.password}
+    user: ${database.username}
+    schemas: ${database.schema}
+    out-of-order: true
